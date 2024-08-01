@@ -36,7 +36,7 @@
         </div>
 
         <div class="expanded">
-            <h4>Informacion Personal:</h4>
+            <p class="bold">Informacion Personal:</p>
             <ul>
                 {% for info in personal_informations %}
                     <li> {{ info.date|date:"F Y" }} - {{ info.information  }} </li>
