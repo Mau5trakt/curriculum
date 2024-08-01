@@ -1,0 +1,56 @@
+body{
+    padding: 0 10px;
+    background-color: #2a2a2e;
+
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.header{
+    text-align: center;
+
+}
+
+.page{
+    margin: 10px 0;
+    padding: 0 85px;
+    width: 70%;
+    background-color: #fff;
+}
+
+.inline{
+    display: flex;
+}
+
+li, p{
+    font-size: 16px;
+    margin-right: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.space{
+    margin: 10px 0;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .page{
+        width: 85%;
+        padding: 0 10px;
+    }
+
+}

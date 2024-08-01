@@ -1,0 +1,156 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cv Enrique Alemany</title>
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cv.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <div class="page">
+
+    <div class="header">
+        <h1>Curriculum Vitae</h1>
+    </div>
+        <hr>
+
+    <div class="content">
+        <div class="inline">
+            <p class="bold">Nombre Completo: </p>
+            <p> {{ user.fullname }} </p>
+        </div>
+
+        <div class="inline">
+            <p class="bold">Fecha de nacimiento:</p>
+            <p> {{ user.birthday }}  </p>
+        </div>
+        <div class="inline">
+            <p class="bold">Número Telefónico:</p>
+            <p>{{ user.phone_number }}</p>
+        </div>
+
+        <div class="expanded">
+            <h4>Informacion Personal:</h4>
+            <ul>
+                {% for info in personal_informations %}
+                    <li> {{ info.date|date:"F Y" }} - {{ info.information  }} </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="expanded">
+            <h4>Experiencia laboral</h4>
+            <ul>
+                {% for item in work_experiences %}
+                    <li> <h4> {{ item.from_date }} - {{ item.to_date }} {{ item.position }} </h4>  <p> {{ item.description }} </p></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="expanded">
+            <p class="bold">Idiomas</p>
+            <ul>
+                {% for language in languages %}
+                    <li>
+                        <h4> {{ language.name }}: Nivel {{ language.level }} </h4>
+                    </li>
+                    <ul>
+                        <li> {{ language.where }} </li>
+                    </ul>
+                {% endfor %}
+            </ul>
+        </div>
+    <div class="expanded">
+        <p class="bold">Cursos</p>
+        <ul>
+            {% for course in courses %}
+                <li class="space"> {{ course.name }} </li>
+                <ul>
+                    <li class="space">  {{ course.from_date | date:'F Y' }} - {{ course.to_date | date:'F Y' }}  </li>
+                </ul>
+
+            {% endfor %}
+        </ul>
+    </div>
+
+
+
+
+        <div class="expanded">
+
+        </div>
+
+    </div>
+
+</div>
+    <div class="page">
+        <div class="expanded">
+            <p class="bold">Experiencia en programacion</p>
+            <ul>
+                <li>Lenguajes de Programación:
+                    {% for item in programming_languages %}
+                        {{ item.ability }}
+                    {% endfor %}
+                </li>
+                <li>
+                    Tecnologías Web:
+                    {% for item in web_technologies %}
+                        {{ item.ability }}
+                    {% endfor %}
+                </li>
+                <li>
+                    Bases de Datos:
+                    {% for item in databases %}
+                        {{ item.ability }}
+                    {% endfor %}
+                </li>
+                <li>
+                    Herramientas de Control de Versiones:
+                    {% for item in vcs %}
+                        {{ item.ability }}
+                    {% endfor %}
+                </li>
+
+                <li>Otros:
+                    {% for item in other %}
+                        {{ item.ability }}
+                    {% endfor %}
+
+                </li>
+
+            </ul>
+        </div>
+        <div class="expanded">
+            <p class="bold">Logros</p>
+            <ul>
+                {% for ach in achievements %}
+                <li> {{ ach.date|date:"F Y" }} - {{ ach.title }} </li>
+                    <ul>
+                        <li> Enlace:  <a href="{{ ach.link }}">{{ ach.link }}</a> </li>
+                    </ul>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="expanded">
+            <p class="bold">Experiencia Adicional</p>
+            <ul>
+                {% for item in additional %}
+                    <li> {{ item.title }} ({{ item.from_date | date:"Y" }} - {{ item.to_date | date:"Y" }})</li>
+
+                {% endfor %}
+            </ul>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+</body>
+</html>
