@@ -25,9 +25,9 @@ SECRET_KEY = 'django-insecure-2uo8c8oo7qrlew%ox9+=52zn7ho6bg+jy^c5v)^bt#%(gzt$m)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # err 400 if i turn of with the render config
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
