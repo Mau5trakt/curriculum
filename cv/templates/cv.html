@@ -51,7 +51,7 @@
             <p class="bold">Experiencia laboral</p>
             <ul>
                 {% for item in work_experiences %}
-                    <li> <h4> {{ item.from_date }} - {{ item.to_date }} {{ item.position }} </h4>  <p> {{ item.description }} </p></li>
+                    <li> <h4> {{ item.from_date|date:"F Y" }} - {{ item.to_date|date:"F Y" }} {{ item.position }} </h4>  <p> {{ item.description }} </p></li>
                 {% endfor %}
             </ul>
         </div>
